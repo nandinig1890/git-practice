@@ -1,0 +1,106 @@
+DAY 4:-
+
+CENTRAL REPO
+==============
+
+501  git clone https://github.com/devopstraininghub/b17projectrepo.git
+  502  ll
+  503  cd b17projectrepo/
+  504  ll
+  505  touch nandini
+  506  ll
+  507  git status
+  508  git add .
+  509  git status
+  510  git commit -m "nandini commit"
+  511  git log
+  512  git show 3560d3c16f93d83c28c7edcf3384c106266e27b5
+  513  ll
+  514  git push
+  515  history
+  516  ll
+  517  git status
+  518  git add .
+  519  git status
+  520  git commit -m "updated nandini file"
+  521  git log
+  522  git show b1389f09a8616c97162a47364ea61ed069c041b4
+  523  ll
+  524  git push
+  525  history
+
+G. nikhil@LAPTOP-F0T6JE74 MINGW64 ~/OneDrive/Desktop/DECEMBER4/b17projectrepo (main)
+$ git push
+remote: Permission to devopstraininghub/b17projectrepo.git denied to nandinig1890.
+fatal: unable to access 'https://github.com/devopstraininghub/b17projectrepo.git/': The requested URL returned error: 403
+
+G. nikhil@LAPTOP-F0T6JE74 MINGW64 ~/OneDrive/Desktop/DECEMBER4/b17projectrepo (main)
+$
+ 
+
+
+BRANCHING
+==============
+
+ 
+
+
+501  git init
+  502  git branch
+  503  touch test
+  504  git status
+  505  git add .
+  506  git commit -m "test commit"
+  507  git branch
+  508  touch m1 m2
+  509  git add .
+  510  git status
+  511  git commit -m "m1 m2 commit"
+  512  git log
+  513  git branch feat
+  514  git branch
+  515  ll
+  516  git checkout feat
+  517  ll
+  518  touch f1 f2 f3
+  519  git status
+  520  git add .
+  521  git status
+  522  git commit -m "feat"
+  523  git log
+  524  ll
+  525  git checkout master
+  526  ll
+  527  git log
+  528  git merge feat
+  529  ll
+  530  git log
+  531  touch a1 a2 a3
+  532  git status
+  533  git add .
+  534  git status
+  535  git commit -m "a features"
+  536  git log
+  537  ll
+  538  git checkout feat
+  539  ll
+  540  git log
+  541  git merge master
+  542  ll
+  543  ll
+  544  touch b1 b2 b3
+  545  git add .
+  546  git commit -m "b1 b2"
+  547  git log
+  548  ll
+  549  git branch feat2
+  550  git branch
+  551  git checkout feat2
+  552  ll
+  553  git checkout master
+  554  ll
+  555  git merge feat2
+  556  git branch -d feat (branch delete avvadu )
+  557  git branch -D feat2
+  558  history
+
