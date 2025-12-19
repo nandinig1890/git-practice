@@ -1,0 +1,200 @@
+Day 5
+=======
+
+branch copy of data
+we need for separation
+
+Main lo matram lo production code untadi
+
+Release branch ========= public ki realesae chestharu
+
+After release – 101 users
+
+Feature test aitundi
+
+Hotfix branch create chesi 
+
+fix chesi main branch + release branch ki merge chestharu
+
+Ex:-
+
+Parallel developments untai
+
+Mottam aipoyaka main ki merge chestaru
+
+
+Tasks
+====
+
+Git init
+deletion and modification
+
+Account and repo create nd clone that and prac 3 [pahses
+
+Central repo-project repo
+If error use
+git pull –rebase
+
+Task
+
+our repo
+Next project repo 
+
+delete our name branch 
+Don’t merge with main
+
+
+502  git clone https://github.com/nandinig1890/nandiniprojectrepo.git
+  503  ll
+  504  cd nandiniprojectrepo/
+  505  ll
+  506  git log
+  507  git show 4b28359a2b6559a8155fa27e53e574976f73c1b9
+  508  git branch feat_vc
+  509  git branch
+  511  git checkout feat_vc
+  512  ll
+  513  touch nv1 nv2
+  514  git status
+  515  git add .
+  516  git commit -m "video call code"
+  517  touch nv3 nv4
+  518  git add . && git commit -m "upadted code"
+  519  git log
+  520  git branch
+  521  git checkout main
+  522  ls -lrth
+  523  git merge feat_vc
+  524  git log
+  525  ll
+  526  ls -lrth
+  527  git push
+  528  git log
+  529  git push https://github.com/nandinig1890/nandiniprojectrepo.git feat_vc
+  530  git branch nandini
+  531  git branch
+  532  git checkout nandini
+  533  rm -rf nv1 nv2 nv3
+  534  git status
+  535  git add .
+  536  git commit -m "delete soem file in nandini branch"
+  537  touch nandini nikitha
+  538  git add . $4 git comm-t -m "commit this"
+  539  git add . && git commit -m "commit this"
+  540  git branch
+  541  git push https://github.com/nandinig1890/nandiniprojectrepo.git nandini
+  542  git push origin nandini
+
+Note :
+Delete chesaka main toh merge cheyyodhu
+
+Folder push to github
+======================================
+                                                
+  543  mkdir nandu
+  544  git status
+  545  ll
+  546  cd nandu/
+  547  ll
+  548  touch nandu1 nandu2
+  549  git status
+  550  git add .
+  551  git status
+  552  cd ..
+  553  git status
+  554  git commit -m "dir commit"
+  555  git log
+  556  git push origin nandini
+  557  history
+
+ 
+
+Git cherry-pick commit-id
+Selected commit id merge to main branch
+                                              
+ ==========================================                                                 
+
+501  git init
+  502  git branch
+  503  git branch test
+  504  touch test
+  505  git add .
+  506  git commit -m "test"
+  507  git log
+  508  touch test2
+  509  git add .
+  510  git commit -m "test2"
+  511  git log
+  512  git branch release
+  513  git status
+  514  git branch
+  515  git checkout release
+  516  touch a b
+  517  git status
+  518  git add . && git commit -m " a, b commit"
+  519  ll
+  520  git log
+  521  touch c
+  522  git add . && git commit -m " c commit"
+  523  touch d e f g
+  524  git add . && git commit -m " d e f g commit"
+  525  ll
+  526  git log
+  527  ll
+  528  git checkout master
+  529  ll
+  530  git cherry-pick 8cd72e6188a0265525e168d1e0ff456d53a9bbda
+  531  ll
+  532  history
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+Merge both branches (vi editor)
+===================
+
+ 
+
+
+533  ll
+  534  vim test2
+  535  ll
+  536  cat test2
+  537  git branch
+  538  ll
+  539  touch new1 new2
+  540  ll
+  541  git add . && git commit -m "new files"
+  542  git log
+  543  git checkout release
+  544  ll
+  545  touch r1
+  546  git add . && git commit -m "r1 files"
+  547  git log
+  548  git checkout master
+  549  touch m1
+  550  git add . && git commit -m "m1 file"
+  551  ll
+  552  git log
+  553  git checkout release
+  554  ll
+  555  touch r2
+  556  git add . && git commit -m "r2 file"
+  557  ll
+  558  git checkout master
+  559  git merge release
+Vi editor will open 
+esc:wq
+Merge will happen
+  560  history
