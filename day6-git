@@ -1,0 +1,489 @@
+
+DAY 6:-
+                            Git conflict
+main> veg> veg burger
+Release > veg > veg pizza
+
+same file (veg) in two branches (main, release)
+however the veg file content is different in both branches
+The file name is same – conflict arises
+
+git merge release
+Auto-merging veg
+CONFLICT (add/add): Merge conflict in veg
+Automatic merge failed; fix conflicts and then commit the result.
+
+G. nikhil@LAPTOP-F0T6JE74 MINGW64 ~/OneDrive/Desktop/DEC19 (master)
+$ git merge release
+Auto-merging veg
+CONFLICT (add/add): Merge conflict in veg
+Automatic merge failed; fix conflicts and then commit the result.
+
+G. nikhil@LAPTOP-F0T6JE74 MINGW64 ~/OneDrive/Desktop/DEC19 (master|MERGING)
+$ ll
+total 1
+-rw-r--r-- 1 G. nikhil 197121   0 Dec 19 11:56 a
+-rw-r--r-- 1 G. nikhil 197121   0 Dec 19 11:56 b
+-rw-r--r-- 1 G. nikhil 197121   0 Dec 19 11:56 c
+-rw-r--r-- 1 G. nikhil 197121   0 Dec 19 11:55 d
+-rw-r--r-- 1 G. nikhil 197121   0 Dec 19 11:55 e
+-rw-r--r-- 1 G. nikhil 197121   0 Dec 19 11:55 f
+-rw-r--r-- 1 G. nikhil 197121   0 Dec 19 11:37 test
+-rw-r--r-- 1 G. nikhil 197121 125 Dec 19 11:56 veg
+
+G. nikhil@LAPTOP-F0T6JE74 MINGW64 ~/OneDrive/Desktop/DEC19 (master|MERGING)
+$ cat veg
+<<<<<<< HEAD
+veg burger
+veg panner
+veg curry
+=======
+veg pizza
+chese pizza
+panner pizza
+>>>>>>> release
+
+Now 
+vim veg
+now manual ga developers and devops eng code lo em unchali em remove cheyali ani decide ayyi cheyyali call lo
+
+And git status
+Git add . && git commit -m “final veg code”
+Conflict gone ….
+$ git log
+commit 32a998fe8a7a150412db3f2a9d04a8496e008048 (HEAD -> master)
+Merge: 6853f9e 6d525ef (master commit id: release commit id) ekkada conflict vachindi manual ga resolve chesam
+Author: nandinig1890 <nandinig1890@gmail.com>
+Date:   Fri Dec 19 12:09:44 2025 +0530
+
+    final veg code
+note: when merge conflict comes oka merge file create aitahdi 
+branch1
+=========
+branch2
+ 
+developers decide chestharu edi unchalo edi teseyalo
+==================================================================
+====================================================================
+1. what is git conflict?
+A Git conflict happens when Git cannot automatically decide which change to keep.
+In simple words:
+❗ Git conflict = Git is confused because two changes clash
+
+2. Why Git conflicts happen
+Git works well until two different changes affect the same thing.
+Common reasons:
+1️⃣ Same file, same line, different changes
+Two branches modify the same line differently.
+Branch A: name = "Nikhil"
+Branch B: name = "Nandu"
+Git doesn’t know which is correct → ❌ conflict
+
+Summary
+Term	Meaning
+Git conflict	Git can’t auto-merge changes
+Happens                    when	Same file/line changed differently
+Needs human	Yes
+Dangerous?	No (if handled properly)
+
+
+
+Simple analogy 🧠
+Two people edit the same sentence in a document:
+•	Person A: “Git is easy”
+•	Person B: “Git is powerful”
+Computer says:
+“I don’t know which one you want — you decide”
+That’s a Git conflict.
+
+
+When do conflicts happen?
+Conflicts usually occur during:
+•	git merge
+•	git rebase
+•	git pull
+•	git checkout (when uncommitted changes exist)
+________________________________________
+How a conflict looks in a file
+Git marks the conflict inside the file:
+<<<<<<< HEAD
+System.out.println("Hello from main");
+=======
+System.out.println("Hello from minnu");
+>>>>>>> minnu
+You must choose or combine the changes.
+________________________________________
+How to resolve a conflict (basic steps)
+1️⃣ Open the conflicted file
+2️⃣ Decide what code you want
+3️⃣ Remove conflict markers (<<<<<<<, =======, >>>>>>>)
+4️⃣ Save the file
+5️⃣ Mark as resolved:
+git add filename
+git commit
+
+======================================================================
+
+•  What is a Git conflict? → When Git cannot automatically merge or switch changes and needs human decision.
+•  Why do Git conflicts happen? → When the same file/line is changed differently in two branches.
+•  When do conflicts occur? → During merge, rebase, pull, or checkout with clashing changes.
+•  Does same file name cause conflict? → No, only different content causes conflict.
+•  Does Git get confused by branches? → No, Git tracks commits, not branch names.
+•  What does D file mean during checkout? → Git deleted the file to match the target branch
+•  Why did git checkout minnu work? → Because there were no conflicting uncommitted changes.
+•  How does a conflict look in a file? → Git adds <<<<<<<, =======, >>>>>>> markers.
+•  How to fix a conflict? → Edit the file, remove markers, git add, then git commit.
+•  Are Git conflicts dangerous? → No, if resolved correctly.
+•	
+====================================================
+COMMANDS:-
+
+Check branch → git branch
+•	Create branch → git branch branch_name
+•	Switch branch → git checkout branch_name
+•	Create & switch → git checkout -b branch_name
+•	New switch command → git switch branch_name
+•	Check status → git status
+•	Add file → git add file_name
+•	Add all → git add .
+•	Commit → git commit -m "message"
+•	View commits → git log
+•	Merge branch → git merge branch_name
+•	Pull changes → git pull
+•	Push changes → git push
+•	Check differences → git diff
+•	Delete branch → git branch -d branch_name
+•	Resolve conflict (after edit) → git add file && git commit
+
+
+Git conflict interview questions with ONE-LINE answers:
+•	What is a Git conflict? → When Git cannot automatically merge changes and needs manual resolution.
+•	When do Git conflicts occur? → During merge, rebase, pull, or checkout with conflicting changes.
+•	Why does Git conflict happen? → Same file or line modified differently in multiple branches.
+•	Does Git conflict occur due to same file name? → No, it occurs due to different content.
+•	How do you identify a conflict? → git status shows unmerged paths and conflict markers in files.
+•	What are conflict markers? → <<<<<<<, =======, >>>>>>> added by Git to show clashes.
+•	How do you resolve a Git conflict? → Edit file, remove markers, git add, then git commit.
+•	What command aborts a merge conflict? → git merge --abort
+•	What command aborts a rebase conflict? → git rebase --abort
+•	How do you continue after resolving conflict in rebase? → git rebase --continue
+•	Can Git resolve conflicts automatically? → Yes, if changes do not overlap.
+•	Is Git conflict an error? → No, it’s a normal situation in collaboration.
+•	How can conflicts be minimized? → Pull frequently and make small, focused commits.
+•	What happens if conflict is not resolved? → Git will not complete merge or rebase.
+•	Which files get conflicts? → Only files modified differently in multiple branches.
+Note:-
+Conflicts are resolved technically in Git, but sometimes require developer discussion to choose the correct business logic
+
+•  Does resolving conflicts require a call with developers? → Not always; only required if the changes’ intent is unclear.
+•  When is a developer call needed? → When you don’t know which logic or change is correct.
+•  Who should resolve the conflict? → The developer who understands the code or feature best.
+•  
+
+Note2:-
+Git conflicts are common in collaborative environments and are resolved by understanding code changes, communicating when needed, and carefully merging and testing.
+
+Real time scenario
+====================
+
+Example 1:-
+give me only simple example to explain if interviewer asks me to explain what git conflicts have you experineced and how you solved
+Here is a simple, real-time DevOps example you can confidently say in an interview:
+-------------------------------------------
+“I faced a Git conflict when two of us edited the same Jenkinsfile — one added a new build stage and I updated the Docker image version. During merge, Git showed a conflict because both changes were in the same file. I opened the Jenkinsfile, kept both the stage and the updated image version, removed the conflict markers, ran git add and git commit, then tested the pipeline to confirm it worked.”
+
+Example 2:-
+
+Kubernetes Deployment Conflict
+“While working on our DevOps project, I encountered a Git conflict in a Kubernetes deployment YAML file. I was updating the container image version for a new release, while another teammate had changed the number of replicas in the same deployment file. When I tried to merge the branches, Git flagged a conflict because both changes were in the same file.
+To resolve it, I opened the YAML file, identified the conflict markers (<<<<<<<, =======, >>>>>>>), and carefully combined both changes: I kept my updated image version and incorporated the new replica count from my teammate. After editing, I saved the file, ran git add to stage it, and committed the merge. Finally, I applied the deployment to the cluster using kubectl apply and verified that the application was running correctly with both the new image and the updated replicas.
+This experience taught me the importance of carefully reviewing conflicts and communicating when necessary, but most conflicts can be resolved technically with Git if you understand the changes.”
+
+FINAL :-
+•  What a Git conflict is – when Git cannot automatically merge changes.
+•  Why conflicts happen – same lines, same files, uncommitted changes, or overlapping updates.
+•  How to identify conflicts – git status and conflict markers (<<<<<<<, =======, >>>>>>>).
+•  How to resolve conflicts – manually edit, remove markers, git add & git commit.
+•  Real-time examples – Jenkinsfile, Kubernetes YAML, Terraform, Helm, Dockerfile.
+•  Communication aspect – when to discuss with teammates for clarity.
+
+
+
+
+                               GIT AMEND:-
+                          ================
+use case1:-
+touch chintu
+git commit -m “cintu” (commited the file with spelling mistake)
+later change it correct word by git amend
+
+git commit --amend -m “chintu file”
+
+
+USE CASE2:-
+touch v1 v2 v3 
+Git add . && git commit -m “v1 v2 v3 files commited’
+Later v4 file came 
+touch v4
+Git add .
+I want V4 file needs to be in v1 v2 v3 commited id 
+then amend the v4 file here
+
+git commit --amend -m "adding v4 file to vc file commitid"
+[master b9b86b4] adding v4 file to vc file commitid
+ Date: Fri Dec 19 13:00:46 2025 +0530
+ 4 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 v1
+ create mode 100644 v2
+ create mode 100644 v3
+ create mode 100644 v4
+
+USE CASE3:-
+Multiple messages to one commit id 
+git commit --amend -m "adding v4 file to vc file commitid" -m "jira: 7890"
+Note:-
+only latest commit id ne modify cheyyochu
+Old files ki NO
+
+
+
+
+What it does
+git commit --amend lets you modify the most recent commit instead of creating a new one.
+________________________________________
+When to use
+1.	To edit the commit message of the last commit.
+2.	To add files you forgot in the last commit.
+
+
+
+git commit --amend --no-edit
+3.	--no-edit keeps the old commit message.
+
+
+Basic Questions
+1.	What does git commit --amend do?
+→ Modifies the most recent commit, either message or content.
+2.	When would you use git commit --amend?
+→ To fix a commit message or add forgotten changes to the last commit.
+3.	Does amending change the commit ID?
+→ Yes, it creates a new commit hash.
+4.	Can you amend a commit that has been pushed?
+→ It’s not recommended; rewriting history can cause conflicts for others.
+5.	How do you amend a commit without changing the message?
+→ git commit --amend --no-edit
+
+Scenario/Practical Questions
+6.	You forgot to add a file in the last commit. How do you fix it?
+→ git add <file> then git commit --amend --no-edit
+7.	You want to correct the last commit message. How?
+→ git commit --amend -m "Corrected commit message"
+8.	What happens if you amend after pushing?
+→ Your local branch differs from remote; you need git push --force, which can overwrite others’ work.
+9.	Can you amend multiple commits?
+→ No, --amend only works for the most recent commit; for older commits, use git rebase -i.
+10.	Is git commit --amend safe in a shared branch?
+→ Only if the commit hasn’t been pushed; otherwise, it can cause problems.
+
+
+
+FILTERING:-
+===============
+
+Git filtering — this usually refers to ways of filtering commits, branches, or files to find or manipulate specific information in a repository.
+
+Git filtering is about showing, searching, or narrowing commits, files, or branches.
+Useful for history analysis, debugging, or cleaning repositories.
+
+Git log -n
+Git log -3
+Git log --oneline 
+Git log --oneline -n
+Git log --author nandini
+Git log --since=”yyyy-mm-dd” (or) git log --since=”December 19 2025”
+
+1️⃣ Filtering commits
+a. Filter by author
+git log --author="Nikhil"
+Shows only commits made by Nikhil.
+b. Filter by commit message
+git log --grep="fix bug"
+Shows commits with “fix bug” in the message.
+c. Filter by date
+git log --since="2025-01-01" --until="2025-12-01"
+Shows commits in a date range.
+________________________________________
+2️⃣ Filtering files in a commit
+a. Show changes for a specific file
+git log -- path/to/file
+b. Show who changed a line in a file
+git blame path/to/file
+
+3️⃣ Filtering branches
+a. List branches with a pattern
+git branch --list "feature/*"
+b. List remote branches containing a commit
+git branch -r --contains <commit-hash>
+________________________________________
+4️⃣ Filtering with git diff
+a. Show changes only for a specific file
+git diff HEAD~1 -- path/to/file
+b. Show staged vs unstaged changes
+git diff         # unstaged
+git diff --cached  # staged
+
+Here’s a one-line Git filtering commands cheat sheet for quick reference:
+•	Filter commits by author: git log --author="Name"
+•	Filter commits by message: git log --grep="keyword"
+•	Filter commits by date: git log --since="YYYY-MM-DD" --until="YYYY-MM-DD"
+•	Show commits for a specific file: git log -- path/to/file
+•	Show who changed each line in a file: git blame path/to/file
+•	Show diff for a specific file: git diff HEAD~1 -- path/to/file
+•	Show staged changes only: git diff --cached
+•	List branches with a pattern: git branch --list "feature/*"
+•	Show remote branches containing a commit: git branch -r --contains <commit-hash>
+•	Remove a file from all history: git filter-repo --path filename --invert-paths
+
+
+Basic Questions
+1.	What is Git filtering?
+→ Narrowing commits, files, or branches to view or manipulate specific data.
+2.	How do you filter commits by author?
+→ git log --author="Name"
+3.	How do you filter commits by commit message keyword?
+→ git log --grep="keyword"
+4.	How do you filter commits by date?
+→ git log --since="YYYY-MM-DD" --until="YYYY-MM-DD"
+5.	How can you see commits affecting a specific file?
+→ git log -- path/to/file
+________________________________________
+Practical / Scenario Questions
+6.	How do you find who last modified a specific line in a file?
+→ git blame path/to/file
+7.	How do you see staged changes only?
+→ git diff --cached
+8.	How do you list branches matching a pattern?
+→ git branch --list "feature/*"
+9.	How do you find which remote branches contain a specific commit?
+→ git branch -r --contains <commit-hash>
+10.	How do you remove a file from all history in Git?
+→ git filter-repo --path filename --invert
+11.	Interview Tip:
+
+a scenario, e.g., “I used git log --author to filter commits by a teammate when tracking a bug,” You now know:
+
+=========================================
+FINALLY:-
+•	What Git filtering is – narrowing commits, files, or branches.
+•	How to filter commits – by author, message, date, or file.
+•	How to check file changes – using git blame and git diff.
+•	How to filter branches – patterns or commits contained in branches.
+•	Advanced filtering – using git filter-repo to rewrite history.
+•	Practical scenarios – bug tracking, file history, branch analysis.
+                                                       GIT CONFIG
+                                      ===============
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.email=nandinig1890@gmail.com
+user.name=nandinig1890
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+G. nikhil@LAPTOP-F0T6JE74 MINGW64 ~/OneDrive/Desktop/DEC19 (master)
+$ git config --global user.name "nandini"
+G. nikhil@LAPTOP-F0T6JE74 MINGW64 ~/OneDrive/Desktop/DEC19 (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=schannel
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+user.email=nandinig1890@gmail.com
+user.name=nandini
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+ALIAS 
+Short name:-
+
+git status – git s
+git status – git sts
+
+git config –global alias.s “status”
+git log – git l
+
+git config –global alias.l “log”
+git branch – git br
+git config –global alias.br “branch”
+
+to delete the alias
+
+git config –global –unset alias.sts
+git config –global –unset alias.l
+
+can we directly commit from workspace to local repo without staging area:-
+
+1st time we cant do 
+1st time regular process
+After modified  file directly we can move directly to local repo
+
+example 
+touch nani
+git status
+git commit -m “nani file” we cant directly commit the file from workspace to local repo
+touch nani
+git add . && git commit -m “file”  1st regular process
+later:-
+vim nani
+nani is good actor
+
+git status
+modified file
+
+now we can directly commit to local repo
+Only modified file we can commit directly from workspace without staging area
+==================================================================
+DELETE BRANCH:-
+Locally deleted
+==============
+>>> release branch
+touch sai
+git add . && git commit -m “sai”
+
+git checkout master
+git branch -d release
+error: the branch 'release' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D release'
+hint: Disable this message with "git config set advice.forceDeleteBranch false"
+
+central delete of branch
+
+git push origin -d branchname
+git push origin -d rel
