@@ -1,0 +1,148 @@
+•  git clone automatically sets up the remote
+•  git push uses that remote
+•  user.name/email only identify the commits
+===============================================
+
+git config --global user.name "John Doe"
+git config --global user.email john@gmail.com
+=================================================
+
+
+501  git clone https://github.com/nandinig1890/nandiniprojectrepo.git
+  502  ll
+  503  cd nandiniprojectrepo/
+  504  ll
+  505  cat README.md
+  506  touch java
+  507  git status
+  508  got add .
+  509  git status
+  510  git commit -m "java commit"
+  511  git log
+   git config --global user.email "nandinig1890@gmail.com"
+   git config --global user.name "nandinig1890"
+  514  git commit -m "java commit"
+  515  git commit -m "j8 commit"
+  516  git add .
+  517  git status
+  518* git commit -m ""
+  519  git log
+  520  git push
+  521  git push
+  522  touch devOps
+  523  ll
+  524  git status
+  525  git add .
+  526  git status
+  527  git commit -m "devOps program"
+  528  git status
+  529  git log
+  530  git log
+  531  touch terraform k8s
+  532  git status
+  533  git add .
+  534  git status
+  535  git commit -m "terraform and k8s"
+  536  git log
+  537  git push
+  538  ll
+  539  cat devOps
+  540  git status
+  541  git add .
+  542  git status
+  543  git commit -m "updated devOps filr"
+  544  git log
+  545  git show  e5d6503c6f573add5bab089278e6a2e648c23859
+  546  git status
+  547  git add .
+  548  git status
+  549  git commit -m "final code devops"
+  550  git log
+  551  git show e5d6503c6f573add5bab089278e6a2e648c23859
+  552  git status
+  553  git push
+  554  ll
+  555  rm -rf terraform
+  556  git status
+  557  git add .
+  558  git status
+  559  git commit -m "dleted files"
+  560  git log
+  561  git show 8db4850c62574403262facf008607d44fea09add
+  562  git push
+
+===========================================================
+
+ 
+
+
+
+1️⃣ Local Repo Setup
+# Initialize a new repo
+git init
+
+# Check status of files
+git status
+
+# Stage changes
+git add <file>       # single file
+git add .            # all files
+
+# Commit changes
+git commit -m "Commit message"
+
+# Amend last commit
+git commit --amend
+________________________________________
+2️⃣ Connecting to GitHub
+# Set your identity (only once per computer)
+git config --global user.name "Your Name"
+git config --global user.email "you@example.com"
+
+# Add remote (if not cloned)
+git remote add origin <repo-URL>
+
+# Push to GitHub
+git push -u origin main
+✅ If you cloned the repo, origin is already set.
+________________________________________
+3️⃣ Updating Your GitHub Repo
+# Pull latest changes from remote
+git pull origin main
+
+# Push local commits
+git push
+________________________________________
+4️⃣ Branching
+# Create new branch
+git branch <branch-name>
+
+# Switch branch
+git switch <branch-name>
+# or
+git checkout <branch-name>
+
+# Merge branch into current
+git merge <branch-name>
+________________________________________
+5️⃣ Checking History
+# View commit history
+git log
+git log --oneline
+
+# Show a specific commit
+git show <commit-hash>
+________________________________________
+6️⃣ Undo / Reset
+# Unstage a file
+git restore --staged <file>
+
+# Undo last commit (keep changes)
+git reset --soft HEAD~1
+
+# Undo last commit (discard changes)
+git reset --hard HEAD~1
+
+
+git pull –rebase
+git push
